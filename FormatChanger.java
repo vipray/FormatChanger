@@ -18,16 +18,18 @@ public class FormatChanger {
 	private JTextField path;
 	private JTextField ext;
 	private JButton button;
-	private JLabel creditLabel;
+	//private JLabel creditLabel;
 	private JLabel lpath;
 	private JLabel lext;
-	
+	Font font = new Font("Courier New", 1, 20);
+	Color bgColor = new Color(44,62,80);
+	Color textColor = new Color(255, 255, 255);
+		
 	
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -51,35 +53,34 @@ public class FormatChanger {
 	
 	private void initialize() {
 		frame = new JFrame("File Format Changer");
-		frame.setBounds(100, 100, 585, 300);
+		frame.setBounds(100, 100, 600, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		frame.getContentPane().setBackground(Color.decode("0xD3C0F7"));
+		frame.getContentPane().setBackground(bgColor);
 		
-		lpath = new JLabel("Enter the path of the Folder eg-(C:/Users/JainVipray)");
-		lpath.setFont(new Font("Times New Roman", Font.BOLD, 20));
-		//lpath.setHorizontalAlignment(SwingConstants.CENTER);
+		lpath = new JLabel("Path of folder eg-(C:/Users)");
+		lpath.setFont(font);
 		lpath.setBounds(36, 13, 500, 38);
-		//lpath.setForeground(Color.WHITE);
+		lpath.setForeground(textColor);
 		frame.getContentPane().add(lpath);
 		
 		
 		path = new JTextField();
 		path.setBounds(36, 54, 500, 31);
-		path.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		path.setFont(font);
 		frame.getContentPane().add(path);
 		path.setColumns(10);
 		
 		lext = new JLabel("Extenstion eg-(.txt)");
-		lext.setBackground(new Color(192, 192, 192));
-		lext.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		lext.setForeground(textColor);
+		lext.setFont(font);
 		lext.setBounds(36, 108, 500, 18);
 		//lext.setForeground(Color.WHITE);
 		frame.getContentPane().add(lext);
 		
 		ext = new JTextField();
 		ext.setBounds(36, 139, 200, 31);
-		ext.setFont(new Font("Times New Roman", Font.BOLD, 20));
+		ext.setFont(font);
 		frame.getContentPane().add(ext);
 		ext.setColumns(10);
 		
@@ -103,10 +104,8 @@ public class FormatChanger {
 						System.out.println(n1);
 						for(File file : list)
 						{
-							System.out.println("in for");
 							if(!(file.isDirectory()))
 							{
-								System.out.println("in if");
 								String FilePath = file.getAbsolutePath();//path of file
 								System.out.println(FilePath);
 								FilePath=FilePath.substring(0,FilePath.lastIndexOf(File.separator)+1);
@@ -130,19 +129,19 @@ public class FormatChanger {
 					}
 				}catch(Exception e1)
 				{
-					JOptionPane.showMessageDialog(null,"Enter Valid Credentials");
+					JOptionPane.showMessageDialog(null,"Enter Valid Data");
 				}
 			}
 		});
-		button.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button.setBounds(36, 185, 80, 31);
+		button.setFont(font);
+		button.setBounds(36, 185, 150, 31);
 		frame.getContentPane().add(button);
 		
 		
-		creditLabel = new JLabel("By-JainVipRay");
-		creditLabel.setBackground(new Color(192, 192, 192));
-		creditLabel.setBounds(470, 224, 101, 16);
-		frame.getContentPane().add(creditLabel);
+		//creditLabel = new JLabel("By-VipRay");
+		//creditLabel.setBackground(new Color(192, 192, 192));
+		//creditLabel.setBounds(470, 224, 101, 16);
+		//frame.getContentPane().add(creditLabel);
 		
 		
 	}
